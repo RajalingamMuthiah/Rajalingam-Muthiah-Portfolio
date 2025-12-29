@@ -352,7 +352,13 @@ const AnimatedBackground = () => {
     splineApp.addEventListener("keyDown", (e) => {
       if (!splineApp) return;
       const skill = SKILLS[e.target.name as SkillNames];
-      if (skill) setSelectedSkill(skill);
+      if (!skill) {
+        setSelectedSkill(null);
+        splineApp.setVariable("heading", "");
+        splineApp.setVariable("desc", "");
+        return;
+      }
+      setSelectedSkill(skill);
       splineApp.setVariable("heading", skill.label);
       splineApp.setVariable("desc", skill.shortDescription);
     });

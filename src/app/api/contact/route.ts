@@ -34,6 +34,13 @@ export async function POST(req: Request) {
       );
     }
 
+    if (trimmedMessage.length < 10) {
+      return Response.json(
+        { error: "Message is too short. Please provide at least 10 characters." },
+        { status: 400 }
+      );
+    }
+
     const resend = new Resend(apiKey);
 
     const adminSend = await resend.emails.send({
