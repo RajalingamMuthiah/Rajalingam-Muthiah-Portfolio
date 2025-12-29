@@ -3,8 +3,8 @@ import { Resend } from "resend";
 export const dynamic = "force-dynamic";
 
 const ADMIN_EMAIL = "rajalingammathiah2011@gmail.com";
-const FROM_ADMIN = "Portfolio <no-reply@yourdomain.com>";
-const FROM_USER_REPLY = "Rajalingam Mathiah <rajalingammathiah2011@gmail.com>";
+const FROM_ADMIN = "Portfolio Contact <onboarding@resend.dev>";
+const FROM_USER_REPLY = "Rajalingam Mathiah <onboarding@resend.dev>";
 
 type ContactPayload = {
   name?: string;
