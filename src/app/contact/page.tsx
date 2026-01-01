@@ -21,7 +21,7 @@ function Page() {
     setStatus("loading");
     setFeedback("");
 
-    // quick client-side guard to avoid short payloads hitting the API
+    // Validate message length client-side
     if (formData.message.trim().length < 10) {
       setStatus("error");
       setFeedback("❌ Message is too short. Please add at least 10 characters.");
@@ -29,6 +29,7 @@ function Page() {
     }
 
     try {
+      // Send to /api/contact endpoint (Jan 1 2026)
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
