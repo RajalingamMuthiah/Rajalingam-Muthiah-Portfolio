@@ -3,6 +3,8 @@ import { Resend } from "resend";
 export const dynamic = "force-dynamic";
 
 const ADMIN_EMAIL = "rajalingammathiah2011@gmail.com";
+const FROM_ADMIN = "Portfolio <no-reply@yourdomain.com>";
+const FROM_USER_REPLY = "Rajalingam <no-reply@yourdomain.com>";
 
 export async function POST(req: Request) {
   console.log("[CONTACT API] Request received at", new Date().toISOString());
@@ -65,7 +67,7 @@ export async function POST(req: Request) {
 
     console.log("[CONTACT API] Sending admin notification to:", ADMIN_EMAIL);
     const adminRes = await resend.emails.send({
-      from: "onboarding@resend.dev",
+      from: FROM_ADMIN,
       to: ADMIN_EMAIL,
       subject: `New Contact: ${name.trim()}`,
       html: `<p><strong>From:</strong> ${name.trim()} (${email.trim()})</p><p><strong>Message:</strong></p><p>${message.trim()}</p>`,
@@ -85,7 +87,7 @@ export async function POST(req: Request) {
     console.log("[CONTACT API] Sending confirmation email to:", email.trim());
     resend.emails
       .send({
-        from: "onboarding@resend.dev",
+        from: FROM_USER_REPLY,
         to: email.trim(),
         subject: `Thank you, ${name.trim()}! We received your message`,
         html: `<p>Hi ${name.trim()},</p><p>Thank you for contacting us. We'll get back to you within 24-48 hours.</p><p>Best regards,<br>Rajalingam</p>`,
