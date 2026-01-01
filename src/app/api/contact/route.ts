@@ -3,8 +3,8 @@ import { Resend } from "resend";
 export const dynamic = "force-dynamic";
 
 const ADMIN_EMAIL = "rajalingammathiah2011@gmail.com";
-const FROM_ADMIN = "Portfolio <no-reply@yourdomain.com>";
-const FROM_USER_REPLY = "Rajalingam <no-reply@yourdomain.com>";
+const FROM_ADMIN = "Portfolio <no-reply@rajalingam-muthiah-portfolio-93ai.vercel.app>";
+const FROM_USER_REPLY = "Rajalingam <no-reply@rajalingam-muthiah-portfolio-93ai.vercel.app>";
 
 export async function POST(req: Request) {
   console.log("[CONTACT API] Request received at", new Date().toISOString());
